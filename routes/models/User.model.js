@@ -26,7 +26,11 @@ const UserSchema = new Schema({
     cartId: {
         type: Schema.ObjectId,
         unique: true
-    }
+    },
+    admin: {
+    		type: Boolean,
+    		default: false
+    	}
 });
 
 module.exports = mongoose.model('User', UserSchema);

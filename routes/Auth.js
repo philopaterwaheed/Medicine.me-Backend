@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../routes/models/User.model");
 const Cart = require("../routes/models/Cart.model");
 const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
 //REGISTER
 router.post("/register", async (req, res) => {
 
@@ -31,7 +32,34 @@ router.post("/register", async (req, res) => {
 		return res.status(400).json("Please fill all the fields");
 });
 
-//LOGIN
+// LOGIN
+router.post('/login', async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(401).json("Wrong User Email");
+        }
 
+        const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json("Wrong Password");
+        }
+
+        const accessToken = jwt.sign(
+            {
+                id: user._id,
+                isAdmin: user.admin,
+            },
+            process.env.JWT_SEC,
+            { expiresIn: "3d" }
+        );
+
+        const { password, ...others } = user._doc;
+        res.status(200).json({ ...others, accessToken });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
