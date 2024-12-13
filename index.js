@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-// const authRoute = require("./routes/Auth");
+const authRoute = require("./routes/Auth");
 // const userRoute = require("./routes/User");
 // const orderRoute = require("./routes/Order");
 // const cartRoute = require("./routes/Cart");
@@ -22,7 +22,7 @@ mongoose
 
   app.use(cors());
   app.use(express.json());
-  // app.use("/api/auth", authRoute);
+  app.use("/api/auth", authRoute);
   // app.use("/api/user", userRoute);
   // app.use("/api/orders", orderRoute);
   // app.use("/api/carts", cartRoute);
