@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 // const userRoute = require("./routes/User");
 // const orderRoute = require("./routes/Order");
 // const cartRoute = require("./routes/Cart");
-// const productRoute = require("./routes/Product");
+const productRoute = require("./routes/Product");
 // const favRoute = require("./routes/Fav");
 // const categoryRoute = require("./routes/Category");
 // const reviewsRoute = require("./routes/Review");
@@ -26,7 +26,7 @@ mongoose
   // app.use("/api/user", userRoute);
   // app.use("/api/orders", orderRoute);
   // app.use("/api/carts", cartRoute);
-  // app.use("/api/products", productRoute);
+  app.use("/api/products", productRoute);
   // app.use("/api/favs", favRoute);
   // app.use("/api/category", categoryRoute);
   // app.use("/api/review", reviewsRoute);
@@ -35,7 +35,7 @@ mongoose
 
 
   app.listen(process.env.PORT || 5000, () => {
-    console.log("Backend server is running!");
+    console.log(`Backend server is running! Connected to Port ${process.env.PORT || 5000}`);
   });
 
   

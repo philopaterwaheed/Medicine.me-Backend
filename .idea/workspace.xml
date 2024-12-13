@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9661bbf6-5d7a-4adb-b29a-431cc6f6e492" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Cart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Category.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Fav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Review.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/models/cart_model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/models/order_model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/models/product_model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/models/review_model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/models/user_model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/verifyToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/models/product_model.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/models/product_model.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,22 +28,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/WebstormProjects/Medicine.me - Frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.Auth.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/hp/WebstormProjects/Medicine.me - Frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hp\WebstormProjects\Medicine.me" />
@@ -81,6 +69,7 @@
       <workItem from="1733510342425" duration="2106000" />
       <workItem from="1733512634692" duration="21000" />
       <workItem from="1734078639109" duration="5255000" />
+      <workItem from="1734087023831" duration="3401000" />
     </task>
     <servers />
   </component>
