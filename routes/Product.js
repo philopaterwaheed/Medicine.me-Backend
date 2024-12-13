@@ -1,5 +1,4 @@
 const Product = require('./models/Product.model.js');
-const Reviews = require("../routes/models/Review.model");
 
 const router = require('express').Router();
 

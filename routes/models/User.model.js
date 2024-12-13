@@ -28,9 +28,9 @@ const UserSchema = new Schema({
         unique: true
     },
     admin: {
-    		type: Boolean,
-    		default: false
-    	}
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('User', UserSchema);
