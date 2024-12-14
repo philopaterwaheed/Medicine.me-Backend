@@ -34,8 +34,16 @@ router.delete('/:id', async (req, res) => {
 			product.reviews = product.reviews.filter(id => id !== reviewId);
 			let rate = product.rating;
 			product.reviewsCount = product.reviewsCount >= 1 ? product.reviewsCount - 1 : 0;
-			product.rating = rate - review.stars / product.reviewsCount;
+			if (product.reviewsCount === 0) {
+				product.rating = 0;
+			}
+			else {
+				product.rating = rate - review.stars / product.reviewsCount;
+			}
 			await product.save();
+		}
+		else {
+			return res.status(404).json({ error: `Not found: product with id ${review.productId} was not found` });
 		}
 	} catch (error) {
 		res.status(500).json({ error: error.message });
@@ -67,8 +75,38 @@ router.post('/add', async (req, res) => {
 			product.reviewsCount = product.reviewsCount + 1;
 			product.rating = reate + review.stars / product.reviewsCount;
 			await product.save();
+			return res.status(200).json({ message: "review added successfully!" });
 		}
-		return res.status(200).json({ message: "review added successfully!" });
+		else {
+			return res.status(404).json({ error: `Not found: product with id ${review.productId} was not found` });
+		}
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+// Edit Review
+router.put('/edit/:id', async (req, res) => {
+	try {
+		const reviewId = req.params.id;
+		const changes = req.body;
+		const review = await Reviews.findById(reviewId);
+		if (!review) {
+			return res.status(404).json({ error: `Not found: review with id ${reviewId} was not found` });
+		}
+		const product = await Product.findById(review.productId);
+		if (!product) {
+			return res.status(404).json({ error: `Not found: product with id ${review.productId} was not found` });
+		}
+		const oldStars = review.stars;
+		const newStars = changes.stars || oldStars;
+		const reviewsCount = product.reviewsCount;
+		if (reviewsCount > 0) {
+			product.rating =
+				((product.rating * reviewsCount) - oldStars + newStars) / reviewsCount;
+		}
+		await Reviews.findByIdAndUpdate(reviewId, changes, { new: true });
+		await product.save();
+		res.status(200).json({ message: 'Review updated successfully!' });
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}

@@ -80,7 +80,7 @@ router.put('/edit/:id', async (req, res) => {
             return res.status(404).json({error: `not found: product with id ${productId} was not found`});
         }
 
-        res.status(500).json({message: 'Product updated successfully!'});
+        res.status(200).json({message: 'Product updated successfully!'});
     } catch (error) {
         res.status(500).json({error: error.message});
     }
