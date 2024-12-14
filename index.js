@@ -9,7 +9,7 @@ const authRoute = require("./routes/Auth");
 const productRoute = require("./routes/Product");
 // const favRoute = require("./routes/Fav");
 // const categoryRoute = require("./routes/Category");
-// const reviewsRoute = require("./routes/Review");
+const reviewsRoute = require("./routes/Review");
 const cors = require("cors");
 dotenv.config();
 mongoose
@@ -29,7 +29,7 @@ mongoose
   app.use("/api/products", productRoute);
   // app.use("/api/favs", favRoute);
   // app.use("/api/category", categoryRoute);
-  // app.use("/api/review", reviewsRoute);
+  app.use("/api/reviews", reviewsRoute);
 
 
 
