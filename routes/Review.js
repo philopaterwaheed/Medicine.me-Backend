@@ -111,6 +111,45 @@ router.put('/edit/:id', async (req, res) => {
 		res.status(500).json({ error: error.message });
 	}
 });
+// Search Reviews by User ID
+router.get('/users/:userId', async (req, res) => {
+	try {
+		const userId = req.params.userId;
+		const reviews = await Reviews.find({ userId });
+		if (reviews.length === 0) {
+			return res.status(404).json({ error: `No reviews found for user with id ${userId}` });
+		}
+		res.status(200).json(reviews);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
+router.get('/products/:productId', async (req, res) => {
+	try {
+		const productId = req.params.productId;
+		const reviews = await Reviews.find({ productId });
+		if (reviews.length === 0) {
+			return res.status(404).json({ error: `No reviews found for product with id ${productId}` });
+		}
+		res.status(200).json(reviews);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+//
+// Get Top-Rated Products
+router.get('/products/top-rated', async (req, res) => {
+	try {
+		const topProducts = await Product.find({ reviewsCount: { $gt: 0 } })
+			.sort({ rating: -1 })
+			.limit(10);
+
+		res.status(200).json(topProducts);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
 module.exports = router;
 
 //675c3feb5c9ec0344abb547f
