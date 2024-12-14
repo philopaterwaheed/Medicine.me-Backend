@@ -40,6 +40,11 @@ const productSchema = new Schema({
         type: [Schema.ObjectId],
         required: false
     },
+    reviewsCount: {
+    		type: Number,
+    		default: 0,
+    		required: true
+    	},
 });
 
 module.exports = mongoose.model('Product', productSchema);

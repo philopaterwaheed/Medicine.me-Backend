@@ -3,11 +3,6 @@ const Reviews = require("../routes/models/Review.model");
 
 const router = require('express').Router();
 
-function getAverage(array) {
-	if (array.length === 0) return 0; // Handle empty array
-	const sum = array.reduce((acc, num) => acc + num, 0); // Calculate the sum
-	return sum / array.length; // Divide by the length of the array
-}
 // Get all Reviews
 //
 router.get('/', async (req, res) => {
@@ -34,7 +29,14 @@ router.delete('/:id', async (req, res) => {
 		}
 		res.status(200).json(review);
 
-		//todo: delete review from product and update rating
+		const product = await Product.findById(reviewParams.productId);
+		if (product) {
+			product.reviews = product.reviews.filter(id => id !== reviewId);
+			let rate = product.rating;
+			product.reviewsCount = product.reviewsCount >= 1 ? product.reviewsCount - 1 : 0;
+			product.rating = rate - review.stars / product.reviewsCount;
+			await product.save();
+		}
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}
@@ -61,8 +63,9 @@ router.post('/add', async (req, res) => {
 		const product = await Product.findById(reviewParams.productId);
 		if (product) {
 			product.reviews.push(review._id);
-			let reviews = await Reviews.find({ productId: product._id });
-			product.rating = getAverage(reviews.map(review => review.stars));
+			let reate = product.rating;
+			product.reviewsCount = product.reviewsCount + 1;
+			product.rating = reate + review.stars / product.reviewsCount;
 			await product.save();
 		}
 		return res.status(200).json({ message: "review added successfully!" });
