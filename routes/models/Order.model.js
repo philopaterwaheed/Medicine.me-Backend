@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
-    productId: {
-        type: Schema.ObjectId,
+    products: {
+        // A map pairing productIds to the # of products in cart
+        type: Map,
         required: true
     },
     userId: {
@@ -12,7 +13,7 @@ const OrderSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['Complete', 'In-Progress', 'Cancelled']
+        enum: ['Confirmed', 'Delivered', 'Cancelled']
     },
 });
 

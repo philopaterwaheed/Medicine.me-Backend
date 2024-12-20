@@ -21,7 +21,6 @@ const productSchema = new Schema({
         required: true
     },
     img: {
-        // String represents URL to image source
         type: String,
         required: true
     },
@@ -44,7 +43,7 @@ const productSchema = new Schema({
     		type: Number,
     		default: 0,
     		required: true
-    	},
+    },
 });
 
 module.exports = mongoose.model('Product', productSchema);

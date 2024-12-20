@@ -1,6 +1,8 @@
 const Users = require('./models/User.model.js');
 const Reviews = require("../routes/models/Review.model");
 
+const router = require('express').Router();
+
 // Get a User by ID
 router.get('/users/:id', async (req, res) => {
 	try {
@@ -48,8 +50,6 @@ router.put('/users/:id', async (req, res) => {
 		res.status(500).json({ error: error.message });
 	}
 });
-
-const router = require('express').Router();
 
 module.exports = router;
 

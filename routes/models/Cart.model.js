@@ -8,7 +8,9 @@ const cartSchema = new Schema({
        unique: true
    },
     products: {
-       type: [Schema.ObjectId]
+       // A map pairing productIds to the # of products in cart
+       type: Map,
+        required: true
     }
 });
 
