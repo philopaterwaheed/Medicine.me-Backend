@@ -39,7 +39,7 @@ router.put('/users/:id', async (req, res) => {
 		const updates = req.body;
 
 		// Update the user and return the new document
-		const updatedUser = await User.findByIdAndUpdate(userId, updates, { new: true });
+		const updatedUser = await Users.findByIdAndUpdate(userId, updates, { new: true });
 
 		if (!updatedUser) {
 			return res.status(404).json({ error: `User with id ${userId} not found` });

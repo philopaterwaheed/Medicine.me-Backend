@@ -1,4 +1,5 @@
 const Cart = require('./models/Cart.model.js');
+const mongoose = require("mongoose");
 
 const router = require('express').Router();
 
@@ -53,3 +54,5 @@ router.delete('/remove/:productId/:userId', async (req, res) => {
         res.status(500).json({error: error.message});
     }
 })
+module.exports = router;
+
