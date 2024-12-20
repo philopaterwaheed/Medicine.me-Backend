@@ -22,14 +22,14 @@ mongoose
 
   app.use(cors());
   app.use(express.json());
-  app.use("/api/auth", authRoute);
+  app.use("/auth", authRoute);
   // app.use("/api/user", userRoute);
   // app.use("/api/orders", orderRoute);
   // app.use("/api/carts", cartRoute);
-  app.use("/api/products", productRoute);
+  app.use("/products", productRoute);
   // app.use("/api/favs", favRoute);
   // app.use("/api/category", categoryRoute);
-  app.use("/api/reviews", reviewsRoute);
+  app.use("/reviews", reviewsRoute);
 
 
 
