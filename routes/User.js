@@ -51,5 +51,6 @@ router.put('/users/:id', async (req, res) => {
 	}
 });
 
+//router.delete('/users/:id', async (req, res) => {}
 module.exports = router;
 
