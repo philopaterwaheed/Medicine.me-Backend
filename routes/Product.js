@@ -15,7 +15,19 @@ router.get('/', async (req, res) => {
         res.status(500).json({error: error.message});
     }
 });
-
+// get product by id DONE
+router.get('/:productId', async (req, res) => {
+	try {
+		const productId = req.params.productId;
+		const product = await Product.findById( productId );
+		if (!product) {
+			return res.status(404).json({ error: `No reviews found for product with id ${productId}` });
+		}
+		res.status(200).json(product);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
 // Get products in specific category
 router.get('/:category', async (req, res) => {
     try {
